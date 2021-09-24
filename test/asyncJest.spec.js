@@ -12,9 +12,9 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('Requisito 1 - O retorno do telefonema', () => {
   test('atende', async () => {
-    await expect(answerPhone(true)).resolves.toEqual('Oi!');
+    await expect(answerPhone(true)).resolves.toBe('Oi!');
   });
   test('ocupado', async () => {
-    await expect(answerPhone(false)).rejects.toThrow('Infelizmente não podemos atender...');
+    await expect(answerPhone(false)).rejects.toThrow(Error);
   });
 });
