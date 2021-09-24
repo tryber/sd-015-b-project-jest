@@ -1,5 +1,6 @@
 const mockFunctions = require('../src/mockFunctions');
-jest.mock("../src/mockFunctions");
+
+jest.mock('../src/mockFunctions');
 
 /*
 Criamos uma série de funções com eficiência duvidosa.
@@ -16,7 +17,6 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
-
   const addFixed = (a, b) => a + b;
   mockFunctions.add.mockImplementation(addFixed);
 
@@ -36,7 +36,7 @@ describe('3 - Verifica as funções e os mocks', () => {
 
   const factorialFixed = (n) => {
     if (n === 0) {
-      return 1
+      return 1;
     }
     if (n < 0) {
       return 'Essa função não trabalha com números negativos';
@@ -45,26 +45,27 @@ describe('3 - Verifica as funções e os mocks', () => {
       return 'Essa função não trabalha com decimais';
     }
     return [...Array(n).keys()].reduce((acc, curr) => acc * (curr + 1), 1);
-  }
+  };
   mockFunctions.factorial.mockImplementation(factorialFixed);
 
   const powerDecimals = (x, n) => {
+    const textError = 'Não há resposta no conjunto dos reais';
     if (x < 0) {
       if (!Number.isInteger(n)) {
-        return 'Não há resposta no conjunto dos reais';
+        return textError;
       }
       if ((1 / n) % 2 === 0) {
-        return 'Não há resposta no conjunto dos reais';
+        return textError;
       }
     }
     return x ** n;
-  }
+  };
   const powerFixed = (x, n) => {
     if (x === 0 && n === 0) {
       return 1;
     }
     return powerDecimals(x, n);
-  }
+  };
   mockFunctions.power.mockImplementation(powerFixed);
 
   test('testa função add', () => {
@@ -94,18 +95,19 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.divide(42, 7)).toEqual(6);
     expect(mockFunctions.divide(729, 243)).toEqual(3);
     expect(mockFunctions.divide(1331, 11)).toEqual(121);
-    expect(() => {mockFunctions.divide(1, 0)})
+    expect(() => { mockFunctions.divide(1, 0) });
       .toThrow(new Error('Não se pode dividir por zero!'));
   });
   test('testa função power', () => {
+    const textError = 'Não há resposta no conjunto dos reais';
     expect(mockFunctions.power(10, 2)).toEqual(100);
     expect(mockFunctions.power(2, 10)).toEqual(1024);
     expect(mockFunctions.power(5, 5)).toEqual(3125);
     expect(mockFunctions.power(1, 10)).toEqual(1);
     expect(mockFunctions.power(0, 0)).toEqual(1);
     expect(mockFunctions.power(1.5, 2)).toEqual(2.25);
-    expect(mockFunctions.power(-1, 1.5)).toEqual('Não há resposta no conjunto dos reais');
-    expect(mockFunctions.power(-1, 0.5)).toEqual('Não há resposta no conjunto dos reais');
+    expect(mockFunctions.power(-1, 1.5)).toEqual(textError);
+    expect(mockFunctions.power(-1, 0.5)).toEqual(textError);
     expect(mockFunctions.power(-1, 2)).toEqual(1);
   });
   test('testa função factorial', () => {
