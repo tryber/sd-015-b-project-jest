@@ -23,7 +23,13 @@ describe('4 - Quem sobreviveu?', () => {
   beforeEach(() => {
     adventure.randomAttack();
   });
-
+  afterEach(() => {
+    console.log(adventure.specialists.map((grupo) => grupo));
+  });
+  afterAll(() => {
+    const aventureiro = adventure.specialists.map(({ nome }) => nome);
+    console.log(`O nome do ultimo sobrevivente é: ${aventureiro}`);
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
