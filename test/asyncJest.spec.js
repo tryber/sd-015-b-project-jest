@@ -10,9 +10,9 @@ a função recebe como parâmetro true e false, respectivamente.
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
-describe('Requisito 1 - O retorno do telefonema', () => {
+describe('1 - O retorno do telefonema', () => {
   test('atende', async () => {
-    await expect(answerPhone(true)).resolves.toBe('Oi!');
+    await expect(answerPhone(true)).resolves.toEqual('Oi!');
   });
   test('ocupado', async () => {
     await expect(answerPhone(false)).rejects.toThrow(Error);
