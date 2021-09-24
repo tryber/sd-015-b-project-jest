@@ -28,9 +28,8 @@ afterEach(() => {
 describe('4 - Quem sobreviveu?', () => {
   beforeEach(() => {
     adventure.randomAttack();
-  })
+  });
   adventure.randomAttack = jest.spyOn(adventure, 'randomAttack');
-
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
