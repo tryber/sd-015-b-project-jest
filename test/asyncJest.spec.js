@@ -19,7 +19,8 @@ describe('1 - O retorno do telefonema', () => {
   });
   test('ocupado', async () => {
     // answerPhone.mockRejectedValue(new Error('Infelizmente não podemos atender...'))
-    await expect(answerPhone(false)).rejects.toThrow(new Error('Infelizmente não podemos atender...'))
+    await expect(answerPhone(false)).rejects
+      .toThrow(new Error('Infelizmente não podemos atender...'))
     // Insira seu teste assíncrono aqui
   });
 });
