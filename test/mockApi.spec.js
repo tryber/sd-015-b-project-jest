@@ -23,7 +23,6 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('2 - Verifica o usuário', () => {
-
   api.fetchURL = jest.fn().mockResolvedValue(
     {
       gender: 'male',
