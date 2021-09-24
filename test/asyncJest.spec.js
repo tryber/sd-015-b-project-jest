@@ -17,6 +17,7 @@ describe('1 - O retorno do telefonema', () => {
     }));
   test('ocupado', async () =>
     // reject -> catch
+    // documentação error acessada: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Error
     answerPhone(false).catch((error) => {
       expect(error.message).toBe('Infelizmente não podemos atender...');
     }));
