@@ -20,7 +20,9 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
+  // Adicione seu código aqui - https://app.betrybe.com/course/fundamentals/testes-automatizados-com-jest/jest-testes-assincronos/7cf613f2-d8ba-40b5-8f9d-2619d813a106/conteudos/89c267cf-1085-4bef-868c-a9c25fb1c47f/setup-e-teardown/28e709e2-64e9-4086-b596-450a3fb66251?use_case=side_bar
+
+  beforeEach(adventure.randomAttack);
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
