@@ -38,9 +38,9 @@ describe('2 - Verifica o usuário', () => {
       password: '1234567890',
     },
   };
-// aqui só escreve o resultado esperado do objeto - preparando pra mockar! 
+  // aqui só escreve o resultado esperado do objeto - preparando pra mockar.
   api.fetchURL = jest.fn().mockResolvedValue(Tunico);
-  // chama a api da função que estamos testando, usa o método jest.fn que é o mais simples, segundo o course, e ai funciona! 
+  // chama a api da função que estamos testando, usa o método jest.fn que é o mais simples, segundo o course, e ai funciona!
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
