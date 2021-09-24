@@ -15,7 +15,7 @@ const answerPhone = require('../src/asyncJest');
 describe('1 - O retorno do telefonema', () => {
   test('atende', () => {
     // assert.fail();
-    expect(answerPhone(true)).resolves.toEqual('Oi');
+    expect(answerPhone(true)).resolves.toEqual('Oi!');
   });
   test('ocupado', () => {
     // assert.fail();
