@@ -59,8 +59,8 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.power(0, 0)).toEqual(1);
   });
   test('testa função factorial', () => {
-    mockFunctions.divide
-      .mockImplementation((n) => (n <= 1 ? 1 : n * mockFunctions.divide(n - 1)));
+    mockFunctions.factorial
+      .mockImplementation((n) => (n <= 1 ? 1 : n * mockFunctions.factorial(n - 1)));
     expect(mockFunctions.factorial(5)).toEqual(120);
     expect(mockFunctions.factorial(10)).toEqual(3628800);
     expect(mockFunctions.factorial(3)).toEqual(6);
