@@ -11,7 +11,7 @@ importados apenas na suite de testes abaixo.
 Importante! A correção de código via mock functions não é uma aplicação usual.
 O foco aqui é a utilização de mock functions.
 
-ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
+ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src' .
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
