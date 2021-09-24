@@ -39,11 +39,11 @@ const requestReturn = {
 };
 
 describe('2 - Verifica o usuário', () => {
-  api.fetchURL = jest
-    .spyOn(api, 'fetchURL')
-    .mockResolvedValue(requestReturn);
-  test('verifica se o usuário é o tunico', async () => (
-    api.fetchURL().then((user) => {
+  api.fetchURL = jest.spyOn(api, 'fetchURL');
+  afterEach(api.fetchURL.mockRestore);
+  test('verifica se o usuário é o tunico', async () => {
+    api.fetchURL.mockResolvedValue(requestReturn);
+    await api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
       expect(user.name.first).toEqual('Antônio');
       expect(user.name.last).toEqual('Britto');
@@ -52,5 +52,20 @@ describe('2 - Verifica o usuário', () => {
       expect(user.login.username).toEqual('tunicao123');
       expect(user.login.password).toEqual('1234567890');
     })
-  ));
+  });
+  test('verifica se há as chaves necessárias no retorno do fetch', async () => {
+    await api.fetchURL().then((user) => {
+      expect(user).toHaveProperty('gender');
+      expect(user).toHaveProperty('name');
+      expect(user.name).toHaveProperty('first');
+      expect(user.name).toHaveProperty('last');
+      expect(user).toHaveProperty('location');
+      expect(user.location).toHaveProperty('country');
+      expect(user).toHaveProperty('email');
+      expect(user).toHaveProperty('login');
+      expect(user.login).toHaveProperty('username');
+      expect(user.login).toHaveProperty('password');
+      console.log(user);
+    })
+  });
 });
