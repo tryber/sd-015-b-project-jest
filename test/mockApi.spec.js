@@ -43,4 +43,4 @@ describe('2 - Verifica o usuário', () => {
       expect(user.login.password).toEqual('1234567890');
     })
   ));
-  });
+});
