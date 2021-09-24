@@ -1,4 +1,4 @@
-const assert = require('assert');
+// const assert = require('assert');
 const answerPhone = require('../src/asyncJest');
 // const answerPhone = require('../src/asyncJest');
 /*
@@ -19,6 +19,7 @@ describe('1 - O retorno do telefonema', () => {
   });
   test('ocupado', async () => {
     // assert.fail();
-    await expect(answerPhone(false)).rejects.toStrictEqual(new Error('Infelizmente não podemos atender...'));
+    await expect(answerPhone(false)).rejects
+      .toStrictEqual(new Error('Infelizmente não podemos atender...'));
   });
 });
