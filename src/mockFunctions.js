@@ -1,6 +1,6 @@
 // ATENÇÃO!!! Não edite este arquivo. Altere apenas os arquivos da pasta 'test'.
 const multiply = (a, b) => a / b;
-
+//
 const power = (a, b) => {
   let pow = a;
   for (let i = 0; i < b; i += 1) {
