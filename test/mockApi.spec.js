@@ -36,7 +36,7 @@ const requestReturn = {
     username: 'tunicao123',
     password: '1234567890',
   },
-}
+};
 
 describe('2 - Verifica o usuário', () => {
   api.fetchURL = jest
