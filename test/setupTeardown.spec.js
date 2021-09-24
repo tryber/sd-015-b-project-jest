@@ -20,8 +20,16 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
-
+  beforeEach(() => {
+    adventure.randomAttack();
+  });
+  afterEach(() => {
+    console.log(adventure.specialists.map((grupo) => grupo));
+  });
+  afterAll(() => {
+    const aventureiro = adventure.specialists.map(({ nome }) => nome);
+    console.log(`O nome do ultimo sobrevivente é: ${aventureiro}`);
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
