@@ -11,9 +11,9 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
-  test('atende', () => answerPhone(true).then((response) => expect(response).toEqual('Oi!')));
+  test('atende', () => answerPhone(true).then((response) => expect(response).toBe('Oi!')));
   test('ocupado', () => {
     answerPhone(false).catch((response) =>
-      expect(response).toEqual('Infelizmente não podemos atender...'));
+      expect(response).toBe('Infelizmente não podemos atender...'));
   });
 });
