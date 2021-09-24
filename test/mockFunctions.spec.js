@@ -1,5 +1,7 @@
 const mockFunctions = require('../src/mockFunctions');
 
+jest.mock('../src/mockFunctions'); // para nao precisar usar jest.fn() em cada mockImplementation
+
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -16,6 +18,18 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('3 - Verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.power.mockImplementation((a, b) => a ** b);
+  mockFunctions.factorial.mockImplementation((n) => { // código de fatorial retirado de https://www.freecodecamp.org/news/how-to-factorialize-a-number-in-javascript-9263c89a4b38/
+    if (n === 0 || n === 1) return 1;
+    for (let index = n - 1; index >= 1; index -= 1) {
+      n *= index;
+    }
+    return n;
+  });
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.divide.mockImplementation((a, b) => a / b);
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);

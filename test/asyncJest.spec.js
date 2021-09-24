@@ -22,3 +22,5 @@ describe('1 - O retorno do telefonema', () => {
       .rejects.toEqual(new Error('Infelizmente não podemos atender...'));
   });
 });
+
+// resolvido com auxílio de conteúdos do course e da documentação do jest https://jestjs.io/pt-BR/docs/asynchronous
