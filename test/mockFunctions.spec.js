@@ -24,10 +24,10 @@ describe('3 - Verifica as funções e os mocks', () => {
   mockFunctions.power.mockImplementation((a, b) => a ** b);
   mockFunctions.factorial.mockImplementation((a) => {
     let fatorial = 1;
-     for (let i = 0; i < a; i += 1) {
-       fatorial *= (i + 1);
-     }
-     return fatorial;
+    for (let i = 0; i < a; i += 1) {
+      fatorial *= (i + 1);
+    }
+    return fatorial;
   });
 
   test('testa função add', () => {
