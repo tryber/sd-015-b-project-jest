@@ -1,4 +1,6 @@
 const adventure = require('../src/setupTeardown');
+const { specialists } = require('../src/setupTeardown');
+
 /*
 Num universo não tão distante, um grupo de aventureiros da Trybe enfrentam uma série de testes.
 O grupo parte em direção ao sucesso, mas,
@@ -21,20 +23,28 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
+  adventure.randomAttack = jest.fn().mockImplementation(() => {
+    specialists.splice(0, 1);
+  });
 
   test('depois da primeira aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(5);
   });
   test('depois da segunda aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(4);
   });
   test('depois da terceira aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(3);
   });
   test('depois da quarta aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(2);
   });
   test('depois da quinta aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(1);
   });
 });
