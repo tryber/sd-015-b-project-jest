@@ -11,16 +11,17 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
-  test('atende', async() => {
+  test('atende', async () => {
     // Insira seu teste assíncrono aqui
-    const resolve = await answerPhone(true)
+    const resolve = await answerPhone(true);
     expect(resolve).toBe('Oi!');
   });
   test('ocupado', () => {
     // Insira seu teste assíncrono aqui
     const verifyError = answerPhone().catch((error) => {
-      error === 'Infelizmente não podemos atender...';
-    })
+      const msg = error === 'Infelizmente não podemos atender...';
+      return msg;
+    });
     expect(verifyError).toBeTruthy();
   });
 });
