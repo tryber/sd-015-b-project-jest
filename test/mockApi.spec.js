@@ -22,11 +22,28 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
-describe('2 - Verifica o usuário', () => {
-  // Crie sua mock da função fetchURL() aqui
+const requestReturn = {
+  gender: 'male',
+  name: {
+    first: 'Antônio',
+    last: 'Britto',
+  },
+  location: {
+    country: 'Brazil',
+  },
+  email: 'tunico@bol.com.br',
+  login: {
+    username: 'tunicao123',
+    password: '1234567890',
+  },
+};
 
-  test('verifica se o usuário é o tunico', async () => (
-    api.fetchURL().then((user) => {
+describe('2 - Verifica o usuário', () => {
+  api.fetchURL = jest.spyOn(api, 'fetchURL');
+  afterEach(api.fetchURL.mockRestore);
+  test('verifica se o usuário é o tunico', async () => {
+    api.fetchURL.mockResolvedValue(requestReturn);
+    await api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
       expect(user.name.first).toEqual('Antônio');
       expect(user.name.last).toEqual('Britto');
@@ -34,6 +51,20 @@ describe('2 - Verifica o usuário', () => {
       expect(user.email).toEqual('tunico@bol.com.br');
       expect(user.login.username).toEqual('tunicao123');
       expect(user.login.password).toEqual('1234567890');
-    })
-  ));
+    });
+  });
+  test('verifica se há as chaves necessárias no retorno do fetch', async () => {
+    await api.fetchURL().then((user) => {
+      expect(user).toHaveProperty('gender');
+      expect(user).toHaveProperty('name');
+      expect(user.name).toHaveProperty('first');
+      expect(user.name).toHaveProperty('last');
+      expect(user).toHaveProperty('location');
+      expect(user.location).toHaveProperty('country');
+      expect(user).toHaveProperty('email');
+      expect(user).toHaveProperty('login');
+      expect(user.login).toHaveProperty('username');
+      expect(user.login).toHaveProperty('password');
+    });
+  });
 });

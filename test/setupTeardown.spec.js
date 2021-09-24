@@ -19,22 +19,43 @@ PS: Os codinomes dos aventureiros são reais! Tentem descobrir quem é quem!
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
-describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
+const resetSpecialists = adventure.specialists;
 
-  test('depois da primeira aventura', () => {
-    expect(adventure.specialists.length).toBe(5);
+afterEach(() => {
+  adventure.specialists = resetSpecialists;
+});
+
+describe('4 - Quem sobreviveu?', () => {
+  beforeEach(() => {
+    adventure.randomAttack();
   });
-  test('depois da segunda aventura', () => {
-    expect(adventure.specialists.length).toBe(4);
+
+  adventure.randomAttack = jest.spyOn(adventure, 'randomAttack');
+
+  [...Array(5).keys()].forEach((element) => {
+    const numberOfTest = element + 1;
+    const testText = `depois da ${numberOfTest} aventura`;
+    const survivals = 5 - element;
+    test(testText, () => {
+      expect(adventure.specialists.length).toBe(survivals);
+    });
   });
-  test('depois da terceira aventura', () => {
-    expect(adventure.specialists.length).toBe(3);
-  });
-  test('depois da quarta aventura', () => {
-    expect(adventure.specialists.length).toBe(2);
-  });
-  test('depois da quinta aventura', () => {
-    expect(adventure.specialists.length).toBe(1);
-  });
+
+  const lastSurviver = adventure.specialists[0].nome;
+  console.log(`The last surviver is ${lastSurviver}`);
+  // test('depois da primeira aventura', () => {
+  //   expect(adventure.specialists.length).toBe(5);
+  // });
+  // test('depois da segunda aventura', () => {
+  //   expect(adventure.specialists.length).toBe(4);
+  // });
+  // test('depois da terceira aventura', () => {
+  //   expect(adventure.specialists.length).toBe(3);
+  // });
+  // test('depois da quarta aventura', () => {
+  //   expect(adventure.specialists.length).toBe(2);
+  // });
+  // test('depois da quinta aventura', () => {
+  //   expect(adventure.specialists.length).toBe(1);
+  // });
 });
