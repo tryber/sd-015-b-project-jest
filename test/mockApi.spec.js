@@ -65,7 +65,6 @@ describe('2 - Verifica o usuário', () => {
       expect(user).toHaveProperty('login');
       expect(user.login).toHaveProperty('username');
       expect(user.login).toHaveProperty('password');
-      console.log(user);
     })
   });
 });
