@@ -18,6 +18,7 @@ describe('3 - Verifica as funções e os mocks', () => {
   // Documentação do Course!!!
   mockFunctions.multiply.mockImplementation((a, b) => a * b);
   mockFunctions.power.mockImplementation((a, b) => a ** b);
+  // acessei : https://stackoverflow.com/questions/3959211/what-is-the-fastest-factorial-function-in-javascript/19139071
   mockFunctions.factorial.mockImplementation((a) => {
     if (a === 0 || a === 1) {
       return 1;
