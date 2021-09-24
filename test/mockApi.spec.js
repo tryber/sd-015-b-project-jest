@@ -14,6 +14,14 @@ independa de chamadas de API e retorne as seguintes informações do Tunico:
 - Nome de usuário: tunicao123
 - Senha: 1234567890 (Usem senhas fortes, crianças!)
 
+const testUserInfo = {
+  gender : 'male',
+  name: {first: 'Antônio',  last: 'Britto' },
+  location: {country: 'Brazil'},
+  email: 'tunico@bol.com.br',
+  login: {username: 'tunicao123', password: '1234567890'},
+};
+
 Note que as informações devem estar de acordo com o JSON
 presente no README.md do projeto.
 
@@ -23,7 +31,15 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('2 - Verifica o usuário', () => {
-  // Crie sua mock da função fetchURL() aqui
+  const testUserInfo = {
+    gender: 'male',
+    name: { first: 'Antônio', last: 'Britto' },
+    location: { country: 'Brazil' },
+    email: 'tunico@bol.com.br',
+    login: { username: 'tunicao123', password: '1234567890' },
+  };
+
+  api.fetchURL = jest.fn().mockResolvedValue(testUserInfo);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
