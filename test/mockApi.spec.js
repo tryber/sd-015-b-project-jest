@@ -51,7 +51,7 @@ describe('2 - Verifica o usuário', () => {
       expect(user.email).toEqual('tunico@bol.com.br');
       expect(user.login.username).toEqual('tunicao123');
       expect(user.login.password).toEqual('1234567890');
-    })
+    });
   });
   test('verifica se há as chaves necessárias no retorno do fetch', async () => {
     await api.fetchURL().then((user) => {
@@ -65,6 +65,6 @@ describe('2 - Verifica o usuário', () => {
       expect(user).toHaveProperty('login');
       expect(user.login).toHaveProperty('username');
       expect(user.login).toHaveProperty('password');
-    })
+    });
   });
 });
