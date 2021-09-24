@@ -17,7 +17,6 @@ describe('1 - O retorno do telefonema', () => {
     // se a função executada na variavel for verdadeira (valor boleano) a resposta do resultado do teste deve ser igual ao resolve da promise.
   });
   test('ocupado', () => {
-    /*  Certifique-se de retornar a promise - se você omitir esta instrução retorna, seu teste será concluído antes que a promessa retornada por fetchData resolva e then() tenha a chance de executar a callback.*/
     answerPhone(false).catch((error) => {
       expect(error.message).toMatch('Infelizmente não podemos atender...');
     });
