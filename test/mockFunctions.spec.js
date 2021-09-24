@@ -17,18 +17,14 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
+  const recursiveFactorial = (num) => (num > 0 ? num * recursiveFactorial(num - 1) : 1);
+
   add.mockImplementation((a, b) => a + b);
   subtract.mockImplementation((a, b) => a - b);
   multiply.mockImplementation((a, b) => a * b);
   divide.mockImplementation((a, b) => a / b);
   power.mockImplementation((a, b) => a ** b);
-  factorial.mockImplementation((num) => {
-    let resultFactorial = 1;
-    for (let index = 1; index <= num; index += 1) {
-      resultFactorial *= index;
-    }
-    return resultFactorial;
-  });
+  factorial.mockImplementation((num) => recursiveFactorial(num));
 
   test('testa função add', () => {
     expect(add(1, 2)).toEqual(3);
