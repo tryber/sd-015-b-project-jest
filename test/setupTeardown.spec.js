@@ -20,8 +20,18 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
+  beforeEach(() => {
+    adventure.randomAttack();
+  });
 
+  afterEach(() => {
+    console.log(adventure.specialists);
+  });
+
+  // ref.: https://jestjs.io/pt-BR/docs/setup-teardown
+  afterAll(() => {
+    console.log(`Só o ${adventure.specialists[0].nome} sobreviveu rsrsrs...`);
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
