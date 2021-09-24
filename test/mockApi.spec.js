@@ -23,9 +23,25 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('2 - Verifica o usuário', () => {
-  // Crie sua mock da função fetchURL() aqui
+  const requestReturn = {
+    gender: 'male',
+    name: { title: 'Mr', first: 'Antônio', last: 'Britto' },
+    location: {
+      country: 'Brazil',
+    },
+    email: 'tunico@bol.com.br',
+    login: {
+      username: 'tunicao123',
+      password: '1234567890',
+    },
+  };
+
+  // analisando o código de Gabriel Jorge identifiquei onde eu estava o meu erro na linha abaixo
+  // https://github.com/tryber/sd-015-b-project-jest/pull/44/commits/98469ffb5ac1196d85af966b19ff32c19d418e27
+  api.fetchURL = jest.spyOn(api, 'fetchURL').mockResolvedValue(requestReturn);
 
   test('verifica se o usuário é o tunico', async () => (
+
     api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
       expect(user.name.first).toEqual('Antônio');
