@@ -15,9 +15,11 @@ describe('1 - O retorno do telefonema', () => {
       expect(resolve).toBe('Oi!');
     });
   });
-  test('ocupado', () => {
-    answerPhone(false).catch((err) => {
-      expect(err.mensage).toContain('Infelizmente não podemos atender...');
-    });
+  test('ocupado', async () => {
+    try {
+      await answerPhone(false);
+    } catch (err) {
+      expect(err.message).toContain('Infezlimente não podemos atender...');
+    }
   });
 });
