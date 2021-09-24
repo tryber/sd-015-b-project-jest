@@ -33,7 +33,6 @@ describe('2 - Verifica o usuário', () => {
   };
 
   api.fetchURL = jest.fn().mockResolvedValue(userData);
-  afterEach(api.fetchURL.mockReset);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
