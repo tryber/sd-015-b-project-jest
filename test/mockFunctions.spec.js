@@ -95,7 +95,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.divide(42, 7)).toEqual(6);
     expect(mockFunctions.divide(729, 243)).toEqual(3);
     expect(mockFunctions.divide(1331, 11)).toEqual(121);
-    expect(() => { mockFunctions.divide(1, 0) });
+    expect(() => { mockFunctions.divide(1, 0) })
       .toThrow(new Error('Não se pode dividir por zero!'));
   });
   test('testa função power', () => {
