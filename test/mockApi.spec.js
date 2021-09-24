@@ -28,7 +28,7 @@ describe('2 - Verifica o usuário', () => {
     name: { first: 'Antônio', last: 'Britto' },
     location: { country: 'Brazil' },
     email: 'tunico@bol.com.br',
-    login: { username: 'tunicao123', password: '1234567890' }
+    login: { username: 'tunicao123', password: '1234567890' },
   };
   api.fetchURL = jest.fn().mockResolvedValue(tunico);
   afterEach(api.fetchURL.mockReset);
