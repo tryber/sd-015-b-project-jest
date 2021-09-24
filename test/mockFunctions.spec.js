@@ -10,8 +10,8 @@ describe('3 - Verifica as funções e os mocks', () => {
   mockFunctions.divide.mockImplementation((a, b) => a / b);
   mockFunctions.power.mockImplementation((a, b) => a ** b);
   mockFunctions.factorial.mockImplementation((num) => {
-    const factorial = (n) => (n <= 1 ? 1 : factorial(n - 1) * n);
-    return factorial(num);
+    const factor = (n) => (n <= 1 ? 1 : factor(n - 1) * n);
+    return factor(num);
   });
 
   test('testa função add', () => {

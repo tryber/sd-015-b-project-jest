@@ -15,6 +15,4 @@ const fetchURL = () => new Promise(function (resolve, reject) {
   });
 });
 
-const log = async () => console.log(await fetchURL());
-log();
 module.exports = { fetchURL };
