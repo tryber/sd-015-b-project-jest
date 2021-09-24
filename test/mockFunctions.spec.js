@@ -1,4 +1,5 @@
 const mockFunctions = require('../src/mockFunctions');
+
 jest.mock('../src/mockFunctions');
 
 /*
@@ -64,7 +65,7 @@ describe('3 - Verifica as funções e os mocks', () => {
       for (let i = 1; i <= a; i += 1) {
         const multiplying = factorial * (i);
         factorial = multiplying;
-      }
+      };
       return factorial
     });
     expect(mockFunctions.factorial(5)).toEqual(120);
