@@ -11,19 +11,12 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('1 - O retorno do telefonema', () => {
   test('atende', async () => {
-    // assert.fail();
-    const atende = await answerPhone(true);
-    expect(atende).toBe('Oi!');
+    expect(answerPhone(true)).resolves.toBe('Oi!');
   });
   test('ocupado', async () => {
-    // assert.fail();
     expect.assertions(1);
-    try {
-      await answerPhone(false);
-    } catch (error) {
-      expect(error).toEqual(
-        new Error('Infelizmente não podemos atender...'),
-      );
-    }
+    await expect(answerPhone(false)).rejects.toEqual(
+      new Error('Infelizmente não podemos atender...'),
+    );
   });
 });
