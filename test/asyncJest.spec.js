@@ -14,13 +14,13 @@ describe('1 - O retorno do telefonema', () => {
   // answerPhone = jest.fn()
   test('atende', async () => {
     // answerPhone.mockResolvedValue('Oi!')
-    await expect(answerPhone(true)).resolves.toBe('Oi!')
+    await expect(answerPhone(true)).resolves.toBe('Oi!');
     // Insira seu teste assíncrono aqui
   });
   test('ocupado', async () => {
     // answerPhone.mockRejectedValue(new Error('Infelizmente não podemos atender...'))
     await expect(answerPhone(false)).rejects
-      .toThrow(new Error('Infelizmente não podemos atender...'))
+      .toThrow(new Error('Infelizmente não podemos atender...'));
     // Insira seu teste assíncrono aqui
   });
 });
