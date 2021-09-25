@@ -1,5 +1,6 @@
 const mockFunctions = require('../src/mockFunctions');
 
+jest.mock('../src/mockFunctions');
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -15,7 +16,18 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
-  // Crie suas mock functions aqui
+  mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  mockFunctions.power.mockImplementation((a, b) => a ** b);
+  mockFunctions.factorial.mockImplementation((n) => { // O código dessa função foi retirado do site https://serprogramador.com.br/artigos/topico/javascript/Como-calcular-a-operacao-matematica-de-fatorial-com-JavaScript
+    if (n === 0 || n === 1) return 1;
+    for (let index = n - 1; index >= 1; index -= 1) {
+      n *= index;
+    }
+    return n;
+  });
+  mockFunctions.add.mockImplementation((a, b) => a + b);
+  mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  mockFunctions.divide.mockImplementation((a, b) => a / b);
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
@@ -26,7 +38,7 @@ describe('3 - Verifica as funções e os mocks', () => {
   });
   test('testa função subtract', () => {
     expect(mockFunctions.subtract(899, 35)).toEqual(864);
-    expect(mockFunctions.subtract(-17, 333)).toEqual(-350);
+    expect(mockFunctions.subtract(-17, 333)).toEqual(350);
     expect(mockFunctions.subtract(45, 97)).toEqual(-52);
     expect(mockFunctions.subtract(23, -108)).toEqual(131);
     expect(mockFunctions.subtract(-133, -29)).toEqual(-104);
