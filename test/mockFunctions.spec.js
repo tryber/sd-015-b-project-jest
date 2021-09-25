@@ -16,6 +16,8 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('3 - Verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
+  mockFunctions.add = jest.fn()
+    .mockImplementation((a, b) => a + b);
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
