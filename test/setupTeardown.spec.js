@@ -22,8 +22,10 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 describe('4 - Quem sobreviveu?', () => {
   beforeEach(() => {
     adventure.randomAttack();
-    console.table(adventure.specialists);
   });
+  afterEach(() => console.table(adventure.specialists));
+  afterAll(() => console.log(`The last Survived is ${adventure.specialists[0].nome}
+  the ${adventure.specialists[0].classe}`));
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
@@ -39,7 +41,5 @@ describe('4 - Quem sobreviveu?', () => {
   });
   test('depois da quinta aventura', () => {
     expect(adventure.specialists.length).toBe(1);
-    console.log(`The last Survived is ${adventure.specialists[0].nome}
-    the ${adventure.specialists[0].classe}`);
   });
 });
