@@ -38,7 +38,7 @@ const mockObj = {
 describe('2 - Verifica o usuário', async() => {
   // Crie sua mock da função fetchURL() aqui
 
-  api.fetchURL = jest.fn().mockResolveValue(mockObj);
+  api.fetchURL = jest.fn().mockResolvedValue(mockObj);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
