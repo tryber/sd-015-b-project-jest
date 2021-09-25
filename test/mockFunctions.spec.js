@@ -14,7 +14,10 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
+  mockFunctions.add = jest().mockImplementation((a, b) => a + b);
+  mockFunctions.subtract = jest().mockImplementation((a, b) => a - b);
   mockFunctions.multiply = jest().mockImplementation((a, b) => a * b);
+  mockFunctions.divide = jest().mockImplementation((a, b) => a / b);
   mockFunctions.power = jest().mockImplementation((a, b) => a ** b);
   mockFunctions.factorial = jest().mockImplementation((n) => { // O código dessa função foi retirado do site https://serprogramador.com.br/artigos/topico/javascript/Como-calcular-a-operacao-matematica-de-fatorial-com-JavaScript
     if (n === 0 || n === 1) return 1;
@@ -23,9 +26,6 @@ describe('3 - Verifica as funções e os mocks', () => {
     }
     return n;
   });
-  mockFunctions.add = jest().mockImplementation((a, b) => a + b);
-  mockFunctions.subtract = jest().mockImplementation((a, b) => a - b);
-  mockFunctions.divide = jest().mockImplementation((a, b) => a / b);
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
