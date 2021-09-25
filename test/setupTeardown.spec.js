@@ -1,4 +1,6 @@
 const adventure = require('../src/setupTeardown');
+
+const { randomAttack } = adventure;
 /*
 Num universo não tão distante, um grupo de aventureiros da Trybe enfrentam uma série de testes.
 O grupo parte em direção ao sucesso, mas,
@@ -21,7 +23,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
-
+  beforeEach(() => randomAttack());
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
