@@ -31,7 +31,7 @@ const mockObj = {
   location: {
     country: "Brazil",
   },
-  mail: "tunico@bol.com.br",
+  email: "tunico@bol.com.br",
   login: {
     username: "tunicao123",
     password: "1234567890",
