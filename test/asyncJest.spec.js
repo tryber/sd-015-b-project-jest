@@ -12,7 +12,7 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
-  test('atende', async() => {
+  test('atende',  () => {
     // assert.fail();
     // Insira seu teste assíncrono aqui
     // OPERADOR TERNÁRIO!
@@ -20,7 +20,7 @@ describe('1 - O retorno do telefonema', () => {
     expect(data).toBe('Oi!'); // Verifica se a mensagem de retorno é Oi!
   });
 
-  test('ocupado', async() => {
+  test('ocupado', async () => {
     // assert.fail();
     // Insira seu teste assíncrono aqui
     try {

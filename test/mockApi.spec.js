@@ -23,17 +23,17 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 const mockObj = {
   name: {
-    first: "Antônio",
-    last: "Britto",
+    first: 'Antônio',
+    last: 'Britto',
   },
-  gender: "male",
+  gender: 'male',
   location: {
-    country: "Brazil",
+    country: 'Brazil',
   },
-  email: "tunico@bol.com.br",
+  email: 'tunico@bol.com.br',
   login: {
-    username: "tunicao123",
-    password: "1234567890",
+    username: 'tunicao123',
+    password: '1234567890',
   },
 };
 describe('2 - Verifica o usuário', () => {
