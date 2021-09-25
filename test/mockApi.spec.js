@@ -47,7 +47,7 @@ describe('2 - Verifica o usuário', () => {
       expect(user.location.country).toEqual('Brazil');
       expect(user.email).toEqual('tunico@bol.com.br');
       expect(user.login.username).toEqual('tunicao123');
-      expect(user.login.password).toEqual('12345678900');
+      expect(user.login.password).toEqual('1234567890');
     })
   ));
 });
