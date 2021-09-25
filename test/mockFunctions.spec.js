@@ -45,7 +45,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.multiply(19, 23)).toEqual(437);
   });
   test('testa função divide', () => {
-    mockFunctions.multiply = jest.fn()
+    mockFunctions.divide = jest.fn()
     .mockImplementation((a, b) => a / b);
     expect(mockFunctions.divide(169, 13)).toEqual(13);
     expect(mockFunctions.divide(-1900, 5)).toEqual(-380);
