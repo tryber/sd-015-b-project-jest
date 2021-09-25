@@ -11,10 +11,10 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('1 - O retorno do telefonema', () => {
   test('atende', async () => {
-    await expect(answerPhone('Oi')).resolves.toBe('Oi!');
+    await expect(answerPhone(true)).resolves.toBe('Oi!');
   });
   test('ocupado', async () => {
-    await expect(answerPhone()).rejects
+    await expect(answerPhone(false)).rejects
       .toStrictEqual(new Error('Infelizmente não podemos atender...'));
   });
 });
