@@ -16,13 +16,30 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
-  mockFunctions.add.mockImplementation((a, b) => a + b);
-  mockFunctions.subtract.mockImplementation((a, b) => a - b);
-  mockFunctions.multiply.mockImplementation((a, b) => a * b);
-  mockFunctions.divide.mockImplementation((a, b) => a / b);
-  mockFunctions.power.mockImplementation((a, b) => a ** b);
-  const funcFactorial = (a) => (a > 1 ? a * funcFactorial(a - 1) : 1);
-  mockFunctions.factorial.mockImplementation(funcFactorial);
+  test('Mock da função "add"', () => {
+    mockFunctions.add.mockImplementation((a, b) => a + b);
+  });
+
+  test('Mock da função "subtract"', () => {
+    mockFunctions.subtract.mockImplementation((a, b) => a - b);
+  });
+
+  test('Mock da função "multiply"', () => {
+    mockFunctions.multiply.mockImplementation((a, b) => a * b);
+  });
+
+  test('Mock da função "divide"', () => {
+    mockFunctions.divide.mockImplementation((a, b) => a / b);
+  });
+
+  test('Mock da função "power"', () => {
+    mockFunctions.power.mockImplementation((a, b) => a ** b);
+  });
+
+  test('Mock da função "factorial"', () => {
+    const funcFactorial = (a) => (a > 1 ? a * funcFactorial(a - 1) : 1);
+    mockFunctions.factorial.mockImplementation(funcFactorial);
+  });
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
