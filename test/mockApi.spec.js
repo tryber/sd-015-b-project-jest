@@ -28,6 +28,9 @@ const mockObj = {
     last: "Britto",
   },
   gender: "male",
+  location: {
+    country: "Brazil",
+  },
   mail: "tunico@bol.com.br",
   login: {
     username: "tunicao123",
