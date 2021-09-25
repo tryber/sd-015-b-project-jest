@@ -1,4 +1,4 @@
-const assert = require('assert');
+// const assert = require('assert');
 const answerPhone = require('../src/asyncJest');
 
 /*
@@ -12,30 +12,22 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
-  test('atende', () => {
+  test('atende', async() => {
     // assert.fail();
     // Insira seu teste assíncrono aqui
-    function callback(data) {
-      try {
-        expect(data).toBe('Oi!');
-        done();
-      } catch (error) {
-        done(error);
-      }
-    }
-    answerPhone(callback);
+    // OPERADOR TERNÁRIO!
+    const data = await answerPhone(true); // Armazena retorno da função em data
+    expect(data).toBe('Oi!'); // Verifica se a mensagem de retorno é Oi!
   });
-  test('ocupado', () => {
+
+  test('ocupado', async() => {
     // assert.fail();
     // Insira seu teste assíncrono aqui
-    function callback(data) {
-      try {
-        expect(data).toBe('Infelizmente não podemos atender...');
-        done();
-      } catch (error) {
-        done(error);
-      }
+    try {
+      await answerPhone(false); // Executa o teste com a função sendo False
+    } catch (error) { // Como ela retorna um erro
+      // Verifica se o erro retorna uma mensagem de erro
+      expect(error).toEqual(new Error('Infelizmente não podemos atender...'));
     }
-    answerPhone(callback);
   });
 });
