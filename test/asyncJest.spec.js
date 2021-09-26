@@ -12,13 +12,13 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('1 - O retorno do telefonema', () => {
   test('atende', () => {
-    //assert.fail();
+    // assert.fail();
     answerPhone().then((data) => {
       expect(data).toBe('true');
     });
   });
   test('ocupado', () => {
-    //assert.fail();
+    // assert.fail();
     answerPhone().catch((data) => {
       expect(data).toBe('false');
     });
