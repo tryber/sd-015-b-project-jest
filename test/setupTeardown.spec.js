@@ -21,7 +21,9 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
-
+  beforeEach(() => { // Estrutura que irá rodar antes de cada teste
+    adventure.randomAttack(); // Função chamada na Estrutura
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
   });
@@ -38,3 +40,4 @@ describe('4 - Quem sobreviveu?', () => {
     expect(adventure.specialists.length).toBe(1);
   });
 });
+console.log(adventure.specialists[0]);
