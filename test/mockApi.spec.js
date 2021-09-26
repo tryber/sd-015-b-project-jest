@@ -23,23 +23,15 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('2 - Verifica o usuário', () => {
-  const tunicoTheBest = {
+  const tunicaoTheBest = {
     gender: 'male',
-    name: {
-      first: 'Antônio',
-      last: 'Britto',
-    },
-    location: {
-      country: 'Brazil',
-    },
+    name: { first: 'Antônio', last: 'Britto' },
     email: 'tunico@bol.com.br',
-    login: {
-      username: 'tunicao123',
-      password: '1234567890',
-    },
+    location: { country: 'Brazil' },
+    login: { username: 'tunicao123', password: '1234567890' },
   };
-  api.fetchURL = jest().mockRejectedValue(tunicoTheBest);
-  afterEach(api.fetchURL.mockReset);
+
+  api.fetchURL = jest.fn().mockResolvedValue(tunicaoTheBest);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
