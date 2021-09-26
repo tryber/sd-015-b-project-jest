@@ -16,7 +16,6 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src' .
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
-
   test('testa função add', () => {
     mockFunctions.add.mockImplementation((a, b) => a + b);
     expect(mockFunctions.add(1, 2)).toEqual(3);
