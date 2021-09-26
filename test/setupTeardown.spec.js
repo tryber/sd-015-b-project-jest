@@ -21,6 +21,17 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
+  adventure.randomAttack = jest.spyOn(adventure, 'randomAttack');
+  beforeEach(() => {
+    adventure.randomAttack();
+  });
+  afterEach(() => {
+    if (adventure.specialists.length === 1) {
+      const { nome } = adventure.specialists[0];
+      const { classe } = adventure.specialists[0];
+      console.log(`A pessoa aventureira sobrevivente foi ${nome}, ${classe}`);
+    }
+  });
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
