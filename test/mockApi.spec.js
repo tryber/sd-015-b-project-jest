@@ -1,7 +1,7 @@
 const api = require('../src/mockApi');
 
 describe('2 - Verifica o usuário', () => {
-  const requestReturn = [
+  /* const requestReturn = [
     {
       gender: 'male',
       name: { first: 'Antônio', last: 'Britto' },
@@ -14,7 +14,7 @@ describe('2 - Verifica o usuário', () => {
         password: '1234567890',
       },
     },
-  ];
+  ]; */
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
