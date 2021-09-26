@@ -25,8 +25,13 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 describe('2 - Verifica o usuário', () => {
   const tunicoTheBest = {
     gender: 'male',
-    name: { first: 'Antônio', last: 'Britto' },
-    country: 'Brazil',
+    name: {
+      first: 'Antônio',
+      last: 'Britto',
+    },
+    location: {
+      country: 'Brazil',
+    },
     email: 'tunico@bol.com.br',
     login: {
       username: 'tunicao123',
