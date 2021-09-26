@@ -1,4 +1,5 @@
 const adventure = require('../src/setupTeardown');
+
 /*
 Num universo não tão distante, um grupo de aventureiros da Trybe enfrentam uma série de testes.
 O grupo parte em direção ao sucesso, mas,
@@ -20,7 +21,20 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
+  const remaining = () => {
+    const rest = adventure.specialists.map((each) => each.nome);
+    if (adventure.specialists.length === 1) {
+      return console.log(`Só restou o bravo guerreiro ${adventure.specialists[0].nome} para 
+      contar a história`);
+    }
+    return console.log(`Restam ${adventure.specialists.length} aventureiros, que são: ${rest}`);
+  };
+  beforeEach(() => {
+    if (adventure.specialists.length > 1) return adventure.randomAttack();
+  });
+  afterEach(() => {
+    remaining();
+  });
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
