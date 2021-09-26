@@ -19,12 +19,12 @@ describe('3 - Verifica as funções e os mocks', () => {
   mockFunctions.multiply = jest().mockImplementation((a, b) => a * b);
   mockFunctions.divide = jest().mockImplementation((a, b) => a / b);
   mockFunctions.power = jest().mockImplementation((a, b) => a ** b);
-  mockFunctions.factorial = jest().mockImplementation((n) => { // O código dessa função foi retirado do site https://serprogramador.com.br/artigos/topico/javascript/Como-calcular-a-operacao-matematica-de-fatorial-com-JavaScript
-    if (n === 0 || n === 1) return 1;
-    for (let index = n - 1; index >= 1; index -= 1) {
-      n *= index;
+  mockFunctions.factorial = jest().mockImplementation((factor) => { // O código dessa função foi corrigido com a ajuda do Walace Borges
+    let resultado = 1;
+    for (let count = 1; count <= factor; count += 1) {
+      resultado *= count;
     }
-    return n;
+    return resultado;
   });
 
   test('testa função add', () => {
