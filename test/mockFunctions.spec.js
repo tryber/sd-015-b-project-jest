@@ -22,14 +22,8 @@ describe('3 - Verifica as funções e os mocks', () => {
   mockFunctions.multiply.mockImplementation((a, b) => a * b);
   mockFunctions.divide.mockImplementation((a, b) => a / b);
   mockFunctions.power.mockImplementation((a, b) => a ** b);
-  mockFunctions.factorial.mockImplementation((a) => {
-    const fatorial = a;
-    let resultado = 1;
-    for (let index = fatorial; index > 1; index--) {
-      resultado *= index;
-    }
-  });
-  // Função fatorial buscada(e entendida) no link: https://serprogramador.com.br/artigos/topico/javascript/Como-calcular-a-operacao-matematica-de-fatorial-com-JavaScript
+  const funcFactorial = (a) => (a > 1 ? a * funcFactorial(a - 1) : 1);
+  mockFunctions.factorial.mockImplementation(funcFactorial);
 
   test('testa função add', () => {
     expect(mockFunctions.add(1, 2)).toEqual(3);
