@@ -18,7 +18,7 @@ describe('1 - O retorno do telefonema', () => {
     try {
       await answerPhone(false);
     } catch (error) {
-      expect(error.message).toEqual('Infelizmente não podemos atender...');
+      expect(error.message).toMatch('Infelizmente não podemos atender...');
     }
   });
 });
