@@ -28,7 +28,8 @@ describe('2 - Verifica o usuário', () => {
     gender: 'male',
     name: { first: 'Antônio', last: 'Britto' },
     location: { country: 'Brazil' },
-    login: { email: 'tunico@bol.com.br', username: 'tunicao123', password: '1234567890' },
+    email: 'tunico@bol.com.br',
+    login: { username: 'tunicao123', password: '1234567890' },
   };
 
   api.fetchURL = jest.fn(api, 'fetchURL').mockImplementation(() => Promise.resolve(objeto));
