@@ -1,5 +1,6 @@
 const mockFunctions = require('../src/mockFunctions');
 
+jest.mock('../src/mockFunctions');
 /*
 Criamos uma série de funções com eficiência duvidosa.
 Elas estão no arquivo 'src/mockFunctions.js'.
@@ -17,7 +18,24 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 describe('3 - Verifica as funções e os mocks', () => {
   // Crie suas mock functions aqui
 
+  const { add, subtract, multiply, divide, power, factorial } = mockFunctions;
+  power.mockImplementation((a, b) => {
+    let pow = 1;
+    for (let i = 0; i < b; i += 1) {
+      pow = a ** b;
+    }
+    return pow;
+  });
+  factorial.mockImplementation((a) => {
+    let fact = a;
+    for (let i = 1; i < a; i += 1) {
+      fact *= i;
+    }
+    return fact;
+  });
+
   test('testa função add', () => {
+    add.mockImplementation((a, b) => a + b);
     expect(mockFunctions.add(1, 2)).toEqual(3);
     expect(mockFunctions.add(8, 37)).toEqual(45);
     expect(mockFunctions.add(-11, 25)).toEqual(14);
@@ -25,6 +43,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.add(7, 26)).toEqual(33);
   });
   test('testa função subtract', () => {
+    subtract.mockImplementation((a, b) => a - b);
     expect(mockFunctions.subtract(899, 35)).toEqual(864);
     expect(mockFunctions.subtract(-17, 333)).toEqual(-350);
     expect(mockFunctions.subtract(45, 97)).toEqual(-52);
@@ -32,6 +51,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.subtract(-133, -29)).toEqual(-104);
   });
   test('testa função multiply', () => {
+    multiply.mockImplementation((a, b) => a * b);
     expect(mockFunctions.multiply(1, 2)).toEqual(2);
     expect(mockFunctions.multiply(0, 5)).toEqual(0);
     expect(mockFunctions.multiply(-4, 9)).toEqual(-36);
@@ -39,6 +59,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.multiply(19, 23)).toEqual(437);
   });
   test('testa função divide', () => {
+    divide.mockImplementation((a, b) => a / b);
     expect(mockFunctions.divide(169, 13)).toEqual(13);
     expect(mockFunctions.divide(-1900, 5)).toEqual(-380);
     expect(mockFunctions.divide(42, 7)).toEqual(6);
