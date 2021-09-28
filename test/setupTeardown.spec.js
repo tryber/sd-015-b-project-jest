@@ -21,20 +21,27 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
-
+  beforeEach(() => {
+    adventure.randomAttack();
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
+    console.log('Sobreviram a primeira aventura:', adventure.specialists);
   });
   test('depois da segunda aventura', () => {
     expect(adventure.specialists.length).toBe(4);
+    console.log('Sobreviram a segunda aventura:', adventure.specialists);
   });
   test('depois da terceira aventura', () => {
     expect(adventure.specialists.length).toBe(3);
+    console.log('Sobreviram a terceira aventura:', adventure.specialists);
   });
   test('depois da quarta aventura', () => {
     expect(adventure.specialists.length).toBe(2);
+    console.log('Sobreviram a quarta aventura:', adventure.specialists);
   });
   test('depois da quinta aventura', () => {
     expect(adventure.specialists.length).toBe(1);
+    console.log('Grande sobrevivente:', adventure.specialists);
   });
 });

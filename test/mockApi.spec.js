@@ -2,7 +2,8 @@ const api = require('../src/mockApi');
 
 /*
 A função fetchURL retorna um JSON com informações de um usuário aleatório buscadas da API 'randomuser.me'.
-No entanto, nos testes abaixo, queremos que todas as vezes que chamarmos a API a resposta contenha as informações do nosso adminis..Cof! Cof!.. programador favorito, Tunicão.
+No entanto, nos testes abaixo, queremos que todas as vezes que chamarmos a API a resposta contenha as
+informações do nosso adminis..Cof! Cof!.. programador favorito, Tunicão.
 
 Faça um mock da função fetchURL() de forma que,
 independa de chamadas de API e retorne as seguintes informações do Tunico:
@@ -21,9 +22,50 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
+const notTestedLiteral = 'Not Tested';
+const notTestedNumber = 0;
+
+const expectedObj = {
+  gender: 'male',
+  name: { title: notTestedLiteral, first: 'Antônio', last: 'Britto' },
+  location: {
+    street: { number: notTestedNumber, name: notTestedLiteral },
+    city: notTestedLiteral,
+    state: notTestedLiteral,
+    country: 'Brazil',
+    postcode: notTestedNumber,
+    coordinates: { latitude: notTestedLiteral, longitude: notTestedLiteral },
+    timezone: {
+      offset: notTestedLiteral,
+      description: notTestedLiteral,
+    },
+  },
+  email: 'tunico@bol.com.br',
+  login: {
+    uuid: notTestedLiteral,
+    username: 'tunicao123',
+    password: '1234567890',
+    salt: notTestedLiteral,
+    md5: notTestedLiteral,
+    sha1: notTestedLiteral,
+    sha256: notTestedLiteral,
+  },
+  dob: { date: notTestedLiteral, age: notTestedNumber },
+  registered: { date: notTestedLiteral, age: notTestedNumber },
+  phone: notTestedLiteral,
+  cell: notTestedLiteral,
+  id: { name: notTestedLiteral, value: notTestedLiteral },
+  picture: {
+    large: notTestedLiteral,
+    medium: notTestedLiteral,
+    thumbnail: notTestedLiteral,
+  },
+  nat: notTestedLiteral,
+};
 
 describe('2 - Verifica o usuário', () => {
   // Crie sua mock da função fetchURL() aqui
+  api.fetchURL = jest.fn().mockResolvedValue(expectedObj);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
