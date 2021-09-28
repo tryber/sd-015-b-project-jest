@@ -21,9 +21,27 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
+// feito com a ajuda do instrutor Ronald e pessoal da salinha :)
 
 describe('2 - Verifica o usuário', () => {
   // Crie sua mock da função fetchURL() aqui
+  const tunicoObject = {
+    gender: 'male',
+    name: {
+      first: 'Antônio',
+      last: 'Britto',
+    },
+    location: {
+      country: 'Brazil',
+    },
+    email: 'tunico@bol.com.br',
+    login: {
+      uuid: '45db2b1f-1c9a-4a80-9572-e46614f86c30',
+      username: 'tunicao123',
+      password: '1234567890',
+    },
+  };
+  api.fetchURL = jest.fn().mockResolvedValueOnce(tunicoObject);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
