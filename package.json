@@ -22,9 +22,10 @@
   },
   "homepage": "https://github.com/betrybe/sd-0x-project-jest#readme",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "acorn": "5.7.4",
     "eslint-config-trybe-fundamentals": "1.1.0",
-    "jest": "24.9.0",
+    "jest": "^24.9.0",
     "minimist": "^1.2.5"
   }
 }
