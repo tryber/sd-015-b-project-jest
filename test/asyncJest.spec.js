@@ -16,7 +16,8 @@ describe('1 - O retorno do telefonema', () => {
   });
   test('ocupado', async () => {
     // Insira seu teste assíncrono aqui
+    const error = 'Infelizmente não podemos atender...';
     expect.assertions(1);
-    await expect(answerPhone(false)).rejects.toThrowError(new Error('Infelizmente não podemos atender...'));
+    await expect(answerPhone(false)).rejects.toThrowError(new Error(error));
   });
 });
