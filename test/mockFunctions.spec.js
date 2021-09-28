@@ -15,17 +15,24 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('3 - Verifica as funções e os mocks', () => {
-  mockFunctions.add.mockImplemetation((a, b) => a + b);
-  mockFunctions.subtract.mockImplemetation((a, b) => a - b);
-  mockFunctions.divide.mockImplemetation((a, b) => a / b);
-  mockFunctions.multiply.mockImplemetation((a, b) => a * b);
-  mockFunctions.power.mockImplemetation((a, b) => a ** b);
-  mockFunctions.factorial.mockImplemetation((a) => {
-    let fatorial = 1;
-    for (let i = 0; i < a; i += 1) {
-      fatorial *= (i + 1);
+  mockFunctions.add = jest.fn().mockImplementation((a, b) => a + b);
+  mockFunctions.subtract = jest.fn().mockImplementation((a, b) => a - b);
+  mockFunctions.multiply = jest.fn().mockImplementation((a, b) => a * b);
+  mockFunctions.divide = jest.fn().mockImplementation((a, b) => a / b);
+  mockFunctions.power = jest.fn().mockImplementation((a, b) => {
+    let pow = a;
+    if (b === 0) return 1;
+    for (let i = 1; i < b; i += 1) {
+      pow = mockFunctions.multiply(pow, a);
     }
-    return fatorial;
+    return pow;
+  });
+  mockFunctions.factorial = jest.fn().mockImplementation((a) => {
+    let fact = 1;
+    for (let i = 0; i < a; i += 1) {
+      fact += mockFunctions.multiply(fact, i);
+    }
+    return fact;
   });
 
   test('testa função add', () => {
