@@ -19,6 +19,9 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('verifica o usuário', () => {
+  const mockApi = jest.spyOn(api, 'fetchURL');
+  afterEach(mockApi.mockReset);
+
   const checkUser = {
     gender: 'male',
     name: { first: 'Antônio', last: 'Britto' },
@@ -29,8 +32,7 @@ describe('verifica o usuário', () => {
       password: '1234567890',
     },
   };
-  const mockApi = jest.spyOn(api, 'fetchURL');
-  mockApi.mockImplementation(async () => checkUser);
+  mockApi.mockResolvedValue(checkUser);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
