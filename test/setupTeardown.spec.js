@@ -20,10 +20,21 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
-
+  beforeEach(() => {
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
+    adventure.randomAttack();
+  });
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
   test('depois da segunda aventura', () => {
     expect(adventure.specialists.length).toBe(4);
@@ -36,5 +47,10 @@ describe('4 - Quem sobreviveu?', () => {
   });
   test('depois da quinta aventura', () => {
     expect(adventure.specialists.length).toBe(1);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
 });
