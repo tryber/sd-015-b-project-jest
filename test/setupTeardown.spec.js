@@ -20,21 +20,54 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('4 - Quem sobreviveu?', () => {
-  // Adicione seu código aqui
-
   test('depois da primeira aventura', () => {
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(5);
+    nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
   test('depois da segunda aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(4);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
   test('depois da terceira aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(3);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
   test('depois da quarta aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(2);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
   test('depois da quinta aventura', () => {
+    adventure.randomAttack();
     expect(adventure.specialists.length).toBe(1);
+    let nomes = '';
+    adventure.specialists.forEach((element) => {
+      nomes += `${element.nome}, `;
+    });
+    console.log(nomes);
   });
 });
