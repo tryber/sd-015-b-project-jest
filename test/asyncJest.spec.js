@@ -9,11 +9,10 @@ a função recebe como parâmetro true e false, respectivamente.
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 describe('1 - O retorno do telefonema', () => {
-  test('atende', () => {
-    answerPhone(true).then((response) => expect(response.toBe('Oi!')));
+  test('atende', async () => {
+    await expect(answerPhone(true)).resolves.toBe('Oi!');
   });
-  test('ocupado', () => {
-    answerPhone(false).catch((error) => expect(error
-      .error(new Error('Infelizmente não podemos atender...'))));
+  test('ocupado', async () => {
+    await expect(answerPhone(false)).rejects.toThrow('Infelizmente não podemos atender...');
   });
 });
