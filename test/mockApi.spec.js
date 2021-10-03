@@ -21,7 +21,8 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
-const tunico = {
+
+const Tunicão = {
   gender: 'male',
   name: { title: 'Mr', first: 'Antônio', last: 'Britto' },
   location: {
@@ -58,8 +59,9 @@ const tunico = {
   },
   nat: 'IE',
 };
+
 describe('2 - Verifica o usuário', () => {
-  api.fetchURL = jest.fn().mockResolvedValue(tunico);
+  api.fetchURL = jest.fn().mockResolvedValue(Tunicão);
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
       expect(user.gender).toEqual('male');
