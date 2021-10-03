@@ -23,11 +23,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     mockFunctions.add.mockImplementation((a, b) => a + b);
 
     expect(mockFunctions.add).toHeveBeenCalledTimes(0);
-    expect(mockFunctions.add(1, 2)).toEqual(3);
-    expect(mockFunctions.add).toHeveBeenCalled();
     expect(mockFunctions.add).toHeveBeenCalledTimes(1);
-    expect(mockFunctions.add(8, 37)).toEqual(45);
-    expect(mockFunctions.add).toHeveBeenCalledTimes(2);
     expect(mockFunctions.add(-11, 25)).toEqual(14);
     expect(mockFunctions.add).toHeveBeenCalledTimes(3);
     expect(mockFunctions.add(13, -188)).toEqual(-175);
@@ -84,7 +80,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.divide).toHeveBeenCalledTimes(5);
   });
   test('testa função power', () => {
-    mockFunctions.divide.mockImplementation((a, b) => a ** b);
+    mockFunctions.power.mockImplementation((a, b) => a ** b);
 
     expect(mockFunctions.power).toHeveBeenCalledTimes(0);
     expect(mockFunctions.power(10, 2)).toEqual(100);
