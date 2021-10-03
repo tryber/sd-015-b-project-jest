@@ -84,7 +84,7 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.divide).toHeveBeenCalledTimes(5);
   });
   test('testa função power', () => {
-    mockFunctions.power.mockImplementation((a, b) => a ** b);
+    mockFunctions.divide.mockImplementation((a, b) => a ** b);
 
     expect(mockFunctions.power).toHeveBeenCalledTimes(0);
     expect(mockFunctions.power(10, 2)).toEqual(100);
