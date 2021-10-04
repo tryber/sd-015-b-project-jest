@@ -1,4 +1,5 @@
 // Fonte: https://serprogramador.com.br/artigos/topico/javascript/Como-calcular-a-operacao-matematica-de-fatorial-com-JavaScript
+
 const mockFunctions = require('../src/mockFunctions');
 
 jest.mock('../src/mockFunctions');
