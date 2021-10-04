@@ -14,7 +14,7 @@ O foco aqui é a utilização de mock functions.
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
-//referencia https://github.com/tryber/sd-015-b-live-lectures
+// referencia https://github.com/tryber/sd-015-b-live-lectures
 
 jest.mock('../src/mockFunctions');
 describe('3 - Verifica as funções e os mocks', () => {
