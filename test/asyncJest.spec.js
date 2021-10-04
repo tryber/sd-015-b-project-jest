@@ -12,11 +12,11 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 // referencia https://github.com/tryber/sd-015-b-project-jest/blob/marco-mecenas-jest-project/test/asyncJest.spec.js
 describe('1 - O retorno do telefonema', () => {
+  // assert.fail();
+  // Insira seu teste assíncrono aqui
   test('atende', () => {
-    // assert.fail();
-    // Insira seu teste assíncrono aqui
-    answerPhone(true).then((data) => {
-      expect(data).toBe('Oi!');
+    return answerPhone(true).then((data) => {
+      expect(data).toEqual('Oi!');
     });
   });
   test('ocupado', () => {
